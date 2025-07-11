@@ -1,0 +1,43 @@
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-image: url('../images/bg.jpg');
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: start;
+}
+
+h1 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+ol {
+  padding: 0;
+}
+li {
+  padding: 8px;
+  font-size: 18px;
+}
+
+.botao-rank {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.botao-rank:hover {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  transform: scale(1.05);
+}

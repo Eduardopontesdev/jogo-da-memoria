@@ -18,8 +18,8 @@ header {
   max-width: 800px;
   background-color: rgba(255,255,255,0.8);
   border-radius: 5px;
-  padding: 30px;
-  margin: 0 0 30px;
+  padding: 15px 30px;
+  margin: 0 0 10px;
   font-size: 1.2em;
 }
 
@@ -68,4 +68,75 @@ header {
 .disabled-card {
   filter: saturate(0);
   opacity: 0.8;
+}
+
+.botao-rank {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.botao-rank:hover {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none; /* começa escondido */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.botoes {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.botoes button {
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.botoes button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+@media  screen and (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
 }

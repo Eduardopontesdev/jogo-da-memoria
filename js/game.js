@@ -41,6 +41,21 @@ function salvarPontuacao(nome, tempo) {
   .catch(err => console.error('Erro ao salvar:', err));
 }
 
+function mostrarAlertaFinal() {
+  const modal = document.getElementById("alerta-final");
+  modal.style.display = "flex";
+
+  document.getElementById("reiniciar-btn").onclick = () => {
+    modal.style.display = "none";
+    loadGame();
+    startTime();
+  };
+
+  document.getElementById("novo-jogo-btn").onclick = () => {
+    window.location.reload();
+  };
+}
+
 let firstCard = "";
 let secondCard = "";
 
@@ -50,10 +65,10 @@ const checkEndGame = () => {
   if (disbaledCards.length === 20) {
     const nome = localStorage.getItem("player");
     const tempo = timerSpan.innerHTML;
-    salvarPontuacao(nome, tempo);
+    // salvarPontuacao(nome, tempo);
     clearInterval(this.loop);
     setTimeout(() => {
-      alert(`Fim do jogo! Parabens ${nome} você conseguiu terminar como tempo ${tempo}`);
+      mostrarAlertaFinal();
     }, 500);
   }
 };
