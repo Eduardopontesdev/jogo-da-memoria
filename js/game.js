@@ -22,19 +22,23 @@ const createElement = (tag, className) => {
   return element;
 };
 
+
+
 function salvarPontuacao(nome, tempo) {
-  fetch(
-    "https://script.google.com/macros/s/AKfycbzh-utg_WKAVjzqZS5FI0P9vHnZIYvmGk2o_FzCOqtC8A3TbClYF3qzO6ehcDBbP-6wyw/exec",
-    {
-      method: "POST",
-      body: JSON.stringify({ nome, tempo }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+ fetch('https://api.sheetbest.com/sheets/2701b9da-c13d-4ab3-a99b-a3202f29c6fa', {
+    method: 'POST',
+    body: JSON.stringify({
+      nome,
+      tempo,
+      data: new Date().toLocaleString()
+    }),
+    headers: {
+      'Content-Type': 'application/json'
     }
-  )
-    .then((res) => res.text())
-    .then((msg) => console.log("Salvo com sucesso:", msg));
+  })
+  .then(res => res.json())
+  .then(msg => console.log('Pontuação salva com sucesso:', msg))
+  .catch(err => console.error('Erro ao salvar:', err));
 }
 
 let firstCard = "";
