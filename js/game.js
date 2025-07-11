@@ -65,7 +65,7 @@ const checkEndGame = () => {
   if (disbaledCards.length === 20) {
     const nome = localStorage.getItem("player");
     const tempo = timerSpan.innerHTML;
-    // salvarPontuacao(nome, tempo);
+    salvarPontuacao(nome, tempo);
     clearInterval(this.loop);
     setTimeout(() => {
       mostrarAlertaFinal();
