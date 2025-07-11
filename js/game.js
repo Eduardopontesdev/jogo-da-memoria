@@ -22,6 +22,21 @@ const createElement = (tag, className) => {
   return element;
 };
 
+function salvarPontuacao(nome, tempo) {
+  fetch(
+    "https://script.google.com/macros/s/AKfycbzh-utg_WKAVjzqZS5FI0P9vHnZIYvmGk2o_FzCOqtC8A3TbClYF3qzO6ehcDBbP-6wyw/exec",
+    {
+      method: "POST",
+      body: JSON.stringify({ nome, tempo }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((res) => res.text())
+    .then((msg) => console.log("Salvo com sucesso:", msg));
+}
+
 let firstCard = "";
 let secondCard = "";
 
@@ -29,8 +44,13 @@ const checkEndGame = () => {
   const disbaledCards = document.querySelectorAll(".disabled-card");
 
   if (disbaledCards.length === 20) {
-    clearInterval(this.loop)
-    alert("Fim do jogo, Parabens você conseguiu!");
+    const nome = localStorage.getItem("player");
+    const tempo = timerSpan.innerHTML;
+    salvarPontuacao(nome, tempo);
+    clearInterval(this.loop);
+    setTimeout(() => {
+      alert(`Fim do jogo! Parabens ${nome} você conseguiu terminar como tempo ${tempo}`);
+    }, 500);
   }
 };
 
@@ -95,9 +115,8 @@ const loadGame = () => {
 };
 
 const startTime = () => {
-  
   this.loop = setInterval(() => {
-    const currentTime = +timerSpan.innerHTML
+    const currentTime = +timerSpan.innerHTML;
     timerSpan.innerHTML = currentTime + 1;
   }, 1000);
 };
