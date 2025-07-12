@@ -52,7 +52,7 @@ function mostrarAlertaFinal() {
   };
 
   document.getElementById("novo-jogo-btn").onclick = () => {
-    window.location.reload();
+    window.location.href = "../index.html";
   };
 }
 

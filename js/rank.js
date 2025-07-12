@@ -9,10 +9,11 @@ const carregarRanking = () => {
       
       const rankingOrdenado = data
         .filter(entry => entry.nome && entry.tempo)
-        .sort((a, b) => Number(a.pontos) - Number(b.tempo))
-        .slice(0, 10); // top 10
+        .sort((a, b) => Number(a.tempo) - Number(b.tempo))
+        .slice(0, 1000); // top 10
 
-      console.log(rankingOrdenado)
+        const spanJogada = document.querySelector('.spanJogadas')
+      spanJogada.innerHTML = rankingOrdenado.length
 
      
       const lista = document.querySelector("#ranking");

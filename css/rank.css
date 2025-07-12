@@ -1,3 +1,9 @@
+body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
 
 main {
   display: flex;
@@ -5,6 +11,7 @@ main {
   background-image: url('../images/bg.jpg');
   background-size: cover;
   width: 100%;
+  /* max-width: 800px; */
   min-height: 100vh;
   align-items: center;
   justify-content: start;
@@ -17,10 +24,18 @@ h1 {
 
 ol {
   padding: 0;
+
 }
 li {
   padding: 8px;
-  font-size: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  background-color: #333;
+  border-radius: 5px;
+  margin: 5px 0;
 }
 
 .botao-rank {
@@ -40,4 +55,12 @@ li {
 .botao-rank:hover {
   background: linear-gradient(135deg, #3498db, #2c3e50);
   transform: scale(1.05);
+}
+
+span {
+  margin: 20px 0;
+}
+.spanJogadas {
+  padding: 20px 0;
+  font-size: 20px;
 }
